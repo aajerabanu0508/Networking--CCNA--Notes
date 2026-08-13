@@ -1,0 +1,30 @@
+telnet 23        ssh 22
+username         username
+password,ip      password
+decryption       ip
+                 domain name
+                 crypto key-rsa
+                 encryption
+----------------------------------------------------------
+Switch>enable
+Switch#show mac-address
+Switch#configure terminal
+Switch(config)#hostname livewire
+livewire(config)#enable password 123
+livewire(config)#exit
+livewire#exit
+
+livewire(config)#interface vlan 1
+livewire(config-if)#ip address 1.1.1.10 255.0.0.0
+livewire(config-if)#no shutdown
+livewire(config-if)#exit
+
+livewire(config)#username live secret xyz
+livewire(config)#line vty 0
+livewire(config-line)#login local
+livewire(config-line)#exit
+----------------------ssh-------------------------------
+livewire(config)#ip domain-name google.com
+livewire(config)#crypto key generate rsa
+How many bits in the modulus [512]: 600
+livewire(config)#ip ssh version 2
