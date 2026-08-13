@@ -1,0 +1,269 @@
+Section A – Beginner Level
+1. What is a computer network?
+
+A. A collection of programs installed on a computer
+B. A group of interconnected devices that can communicate with each other
+C. A type of operating system
+D. A storage device
+
+2. Which of the following is an example of a network device?
+
+A. Keyboard
+B. Monitor
+C. Switch
+D. Printer cartridge
+
+3. Which transmission mode allows communication in both directions, but not at the same time?
+
+A. Simplex
+B. Half-duplex
+C. Full-duplex
+D. Multiplex
+
+4. Which transmission mode allows communication in both directions simultaneously?
+
+A. Simplex
+B. Half-duplex
+C. Full-duplex
+D. Broadcast
+
+5. A television broadcast is generally an example of which transmission mode?
+
+A. Simplex
+B. Half-duplex
+C. Full-duplex
+D. Bidirectional
+
+6. Which addressing type is associated with the physical address of a network interface?
+
+A. IP address
+B. MAC address
+C. Port number
+D. URL
+
+7. Which device is primarily used to connect multiple devices within a LAN?
+
+A. Router
+B. Switch
+C. Repeater
+D. Modem
+
+8. What is the primary purpose of a NIC?
+
+A. To assign IP addresses
+B. To connect a device to a network
+C. To route packets between networks
+D. To amplify electrical signals
+
+9. What does MAC stand for?
+
+A. Media Access Control
+B. Machine Access Configuration
+C. Media Address Configuration
+D. Multiple Access Connection
+
+10. Which device operates primarily at Layer 2 of the OSI model?
+
+A. Router
+B. Switch
+C. Repeater
+D. Hub
+
+Section B – Intermediate Level
+11. Which device forwards frames based on MAC addresses?
+
+A. Hub
+B. Switch
+C. Router
+D. Repeater
+
+12. Which device sends incoming data out through all of its ports?
+
+A. Switch
+B. Router
+C. Hub
+D. Bridge
+
+13. What is the major disadvantage of a traditional hub?
+
+A. It cannot connect computers
+B. It creates a separate network for every device
+C. It forwards traffic to all connected devices
+D. It uses IP addresses instead of MAC addresses
+
+14. Which device is primarily responsible for connecting different IP networks?
+
+A. Hub
+B. Switch
+C. Router
+D. NIC
+
+15. A switch receives a frame with a destination MAC address. What does the switch use to decide where to forward the frame?
+
+A. Routing table
+B. MAC address table
+C. DNS table
+D. ARP table only
+
+16. Which device is used to regenerate or amplify a weakened network signal?
+
+A. Router
+B. Switch
+C. Repeater
+D. Bridge
+
+17. What is the main purpose of a bridge?
+
+A. Connect and filter traffic between LAN segments
+B. Assign IP addresses
+C. Connect different WANs
+D. Convert domain names into IP addresses
+
+18. Which topology connects all devices to a central device such as a switch?
+
+A. Bus topology
+B. Ring topology
+C. Star topology
+D. Mesh topology
+
+19. In which topology is every device connected to every other device?
+
+A. Star
+B. Bus
+C. Ring
+D. Full Mesh
+
+20. Which topology uses a single shared backbone cable?
+
+A. Star
+B. Bus
+C. Mesh
+D. Ring
+
+Section C – Scenario-Based Questions
+21. A company has 20 computers in one office. The administrator wants all computers to communicate efficiently within the same LAN. Which device would be the best choice?
+
+A. Hub
+B. Switch
+C. Repeater
+D. Router
+
+22. PC1 has the IP address 192.168.1.10 and wants to communicate with another device on the same LAN. What address does PC1 ultimately need to deliver an Ethernet frame to the destination device?
+
+A. Destination MAC address
+B. Destination port number
+C. DNS address
+D. Default gateway's MAC address only
+
+23. A network administrator connects 10 computers to a hub. PC1 sends a frame to PC2. What happens?
+
+A. Only PC2 receives the signal
+B. The hub forwards the signal to all connected ports
+C. The router receives the frame first
+D. The hub checks the destination MAC address and selects one port
+
+24. Two computers are communicating using Ethernet. The network administrator wants to know the physical address of a network interface. Which address should they check?
+
+A. IPv4 address
+B. IPv6 address
+C. MAC address
+D. Default gateway
+
+25. A company has two separate networks:
+Network A: 192.168.1.0/24
+Network B: 192.168.2.0/24
+
+Which device is normally required to allow communication between these two networks?
+
+A. Hub
+B. Repeater
+C. Router
+D. NIC
+
+26. A network connection has a bandwidth of 100 Mbps, but a file transfer is achieving only 70 Mbps. What does the 70 Mbps value most closely represent?
+
+A. MAC address
+B. Throughput
+C. IP address
+D. Topology
+
+27. Two users are connected through a half-duplex Ethernet connection. What is the characteristic of this communication?
+
+A. Both devices transmit simultaneously
+B. Only one device can transmit at a time
+C. Data can only travel in one direction
+D. Communication does not require a MAC address
+
+28. A switch has learned the following MAC addresses:
+AA:AA:AA:AA:AA:01 → Port 1
+BB:BB:BB:BB:BB:02 → Port 2
+CC:CC:CC:CC:CC:03 → Port 3
+
+A frame arrives destined for:
+
+BB:BB:BB:BB:BB:02
+
+Which port should the switch forward the frame to?
+
+A. Port 1
+B. Port 2
+C. Port 3
+D. All ports
+
+29. A network administrator notices that a signal becomes weak after traveling a long distance through a cable. Which device can be used to regenerate the signal?
+
+A. Router
+B. Switch
+C. Repeater
+D. NIC
+
+30. Scenario:
+
+A small company has the following requirements:
+
+15 PCs
+All PCs are in the same LAN
+Efficient communication is required
+The administrator wants to reduce unnecessary traffic
+Each PC should be connected to a central device
+
+Which solution is the best choice?
+
+A. Use a hub with bus topology
+B. Use a switch with star topology
+C. Use a repeater with ring topology
+D. Use a router with mesh topology
+
+
+| Q  | Answer | Topic             |
+| -- | ------ | ----------------- |
+| 1  | **B**  | Network basics    |
+| 2  | **C**  | Network devices   |
+| 3  | **B**  | Half-duplex       |
+| 4  | **C**  | Full-duplex       |
+| 5  | **A**  | Simplex           |
+| 6  | **B**  | MAC addressing    |
+| 7  | **B**  | Switch            |
+| 8  | **B**  | NIC               |
+| 9  | **A**  | MAC               |
+| 10 | **B**  | Switch / Layer 2  |
+| 11 | **B**  | MAC forwarding    |
+| 12 | **C**  | Hub               |
+| 13 | **C**  | Hub limitation    |
+| 14 | **C**  | Router            |
+| 15 | **B**  | MAC address table |
+| 16 | **C**  | Repeater          |
+| 17 | **A**  | Bridge            |
+| 18 | **C**  | Star topology     |
+| 19 | **D**  | Mesh topology     |
+| 20 | **B**  | Bus topology      |
+| 21 | **B**  | LAN / Switch      |
+| 22 | **A**  | MAC address       |
+| 23 | **B**  | Hub behavior      |
+| 24 | **C**  | MAC address       |
+| 25 | **C**  | Router            |
+| 26 | **B**  | Throughput        |
+| 27 | **B**  | Half-duplex       |
+| 28 | **B**  | Switch forwarding |
+| 29 | **C**  | Repeater          |
+| 30 | **B**  | Switch + Star     |
