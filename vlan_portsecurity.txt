@@ -1,0 +1,36 @@
+vlan 
+ 1.without trunk---separate path for each vlan(access port)
+ 2.with trunk--same path for each vlan 
+
+Switch>enable
+Switch#configure terminal
+Switch(config)#vlan 2
+Switch(config-vlan)#name manager
+Switch(config-vlan)#exit
+Switch(config)#interface fa0/5
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 2
+Switch(config-if)#exit
+
+Switch#show vlan
+**********with trunk***************
+livewire(config)#interface fa0/4
+livewire(config-if)#switchport mode trunk
+livewire(config-if)#switchport  trunk native vlan 2
+livewire(config-if)#exit
+---------------------------------------------------------------------
+port security:
+Switch>enable
+Switch#configure terminal
+Switch(config)#interface fa0/2
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport port-security
+Switch(config-if)#switchport port-security maximum 1 (mac-address)
+Switch(config-if)#switchport port-security violation shutdown
+Switch(config-if)#switchport port-security mac-address  sticky
+Switch(config-if)#exit
+Switch(config)#do show port-security
+Switch(config)#int fa0/2
+Switch(config-if)#shutdown
+Switch(config-if)#no shutdown
+------------------------------------------------------------------------
