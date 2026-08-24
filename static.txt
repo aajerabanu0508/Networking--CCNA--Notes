@@ -1,0 +1,16 @@
+=======================================================static routing=======================================================================
+
+Router>en
+Router#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config-if)#int gig0/0/0 
+Router(config-if)#ip address 11.1.1.100 255.0.0.0
+Router(config-if)#int gig0/0/1
+Router(config-if)#ip address 10.1.1.100 255.0.0.0	
+Router(config-if)#no shutdown
+Router(config-if)#exit
+#################### enable communication between router and pcs #####################
+
+Router(config)#ip route 11.1.1.0 255.255.255.0 11.1.1.30
+                        
+ip route (destination n/w add)(des subnet mask)( source next hop)
