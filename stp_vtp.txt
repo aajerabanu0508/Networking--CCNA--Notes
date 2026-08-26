@@ -1,0 +1,37 @@
+stp---spanning tree protocal
+
+Switch(config)#spanning-tree vlan 1 root primary
+
+Switch#show spanning-tree
+
+Switch(config)#spanning-tree vlan 1 priority 20480
+---------------------------------------------------------------------
+vtp---vlan trunking protocal
+
+server
+client
+transparent
+
+Switch(config)#int fa0/11
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#exit
+
+Switch(config)#vtp mode ?
+  client       Set the device to client mode.
+  server       Set the device to server mode.
+  transparent  Set the device to transparent mode.
+Switch(config)#vtp mode server
+Device mode already VTP SERVER.
+Switch(config)#vtp domain network
+Changing VTP domain name from NULL to network
+Switch(config)#vtp password live
+Setting device VLAN database password to live
+
+Switch(config)#vlan 10
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#exit
+Switch(config)#
+Switch(config)#do show vlan brief
+------------------------------------------------------------------
+
