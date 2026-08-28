@@ -1,0 +1,37 @@
+RIP Configuration
+
+Example topology:
+
+192.168.1.0/24
+      │
+      R1
+      │
+   10.0.0.0/30
+      │
+      R2
+      │
+192.168.2.0/24
+R1
+Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# no auto-summary
+Router(config-router)# network 192.168.1.0
+Router(config-router)# network 10.0.0.0
+R2
+Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# no auto-summary
+Router(config-router)# network 192.168.2.0
+Router(config-router)# network 10.0.0.0
+
+
+
+-Verification---------
+|show ip interface brief
+show ip route
+Verification commands
+Router(config-router)#do show ip route                                                    
+Router(config-router)#do show ip protocols
+Router#show ip rip database
+show running-config | section router rip   
+ping <neighbor-IP>
