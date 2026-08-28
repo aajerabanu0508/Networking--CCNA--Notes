@@ -1,0 +1,66 @@
+telnet 23        ssh 22
+username         username
+password,ip      password
+decryption       ip
+                 domain name
+                 crypto key-rsa
+                 encryption
+----------------------------------------------------------
+SSwitch> enable
+Switch# configure terminal
+Basic switch configuration
+Switch(config)# hostname SW1
+SW1(config)# enable secret class
+SW1(config)# interface vlan 1
+SW1(config-if)# ip address 192.168.1.1 255.255.255.0
+SW1(config-if)# no shutdown
+SW1(config-if)# exit
+Configure console password
+SW1(config)# line console 0
+SW1(config-line)# password cisco
+SW1(config-line)# login
+SW1(config-line)# exit
+3. Telnet configuration
+
+Configure the VTY lines:
+
+SW1(config)# line vty 0 4
+SW1(config-line)# password telnet123
+SW1(config-line)# login
+SW1(config-line)# transport input telnet
+SW1(config-line)# exit
+
+Save the configuration:
+
+SW1(config)# end
+----------------------ssh-------------------------------
+SW1# configure terminal
+SW1(config)# hostname SW1
+SW1(config)# ip domain-name lab.local
+SW1(config)# username admin privilege 15 secret admin123
+SW1(config)# crypto key generate rsa
+
+When prompted for the modulus size, use:
+
+How many bits in the modulus [512]: 1024
+
+Then configure the VTY lines for SSH:
+
+SW1(config)# line vty 0 4
+SW1(config-line)# login local
+SW1(config-line)# transport input ssh
+SW1(config-line)# exit
+
+Configure SSH version 2:
+
+SW1(config)# ip ssh version 2
+SW1(config)# end
+SW1# copy running-config startup-config
+
+If you want both Telnet and SSH to work, use:
+
+SW1(config)# line vty 0 4
+SW1(config-line)# login local
+SW1(config-line)# transport input telnet ssh
+
+ssh -l admin 192.168.1.1
