@@ -1,0 +1,62 @@
+! ================================
+! STP TIMER CONFIGURATION
+! ================================
+
+Switch(config)# spanning-tree vlan 10 hello-time 10
+Switch(config)# spanning-tree vlan 10 forward-time 20
+Switch(config)# spanning-tree vlan 10 max-age 40
+
+
+! ================================
+! STP BASIC CONFIGURATION
+! ================================
+
+! Change Bridge Priority
+Switch(config)# spanning-tree vlan 10 priority 150
+
+! Change Interface Path Cost
+Switch(config-if)# spanning-tree cost 42
+
+! Make switch Root Bridge (Primary)
+Switch(config)# spanning-tree vlan 10 root primary
+
+! Make switch Secondary Root Bridge
+Switch(config)# spanning-tree vlan 10 root secondary
+
+! Disable STP for VLAN 10
+Switch(config)# no spanning-tree vlan 10
+
+
+! ================================
+! STP PORTFAST
+! ================================
+
+Switch(config-if)# spanning-tree portfast
+
+
+! ================================
+! STP UPLINKFAST
+! ================================
+
+Switch(config-if)# spanning-tree uplinkfast
+
+
+! ================================
+! STP BACKBONEFAST
+! ================================
+
+Switch(config)# spanning-tree backbonefast
+
+
+! ================================
+! STP PROTECTION
+! ================================
+
+! Root Guard
+Switch(config-if)# spanning-tree guard root
+
+! BPDU Guard
+Switch(config-if)# spanning-tree bpduguard enable
+
+! BPDU Filter
+Switch(config-if)# spanning-tree bpdufilter enable

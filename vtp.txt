@@ -1,0 +1,105 @@
+! ==========================================
+! VTP BASIC CONFIGURATION
+! ==========================================
+
+! Check VTP status
+Switch# show vtp status
+
+! Check VTP counters
+Switch# show vtp counters
+
+! Check VTP password
+Switch# show vtp password
+
+
+! ==========================================
+! VTP SERVER
+! ==========================================
+
+Switch(config)# vtp mode server
+
+! Set VTP domain
+Switch(config)# vtp domain COMPANY
+
+! Set VTP password
+Switch(config)# vtp password cisco
+
+! Enable VTP version
+Switch(config)# vtp version 2
+
+
+! ==========================================
+! VTP CLIENT
+! ==========================================
+
+Switch(config)# vtp mode client
+
+Switch(config)# vtp domain COMPANY
+
+Switch(config)# vtp password cisco
+
+Switch(config)# vtp version 2
+
+
+! ==========================================
+! VTP TRANSPARENT
+! ==========================================
+
+Switch(config)# vtp mode transparent
+
+Switch(config)# vtp domain COMPANY
+
+Switch(config)# vtp password cisco
+
+Switch(config)# vtp version 2
+
+
+! ==========================================
+! VTP OFF
+! ==========================================
+
+Switch(config)# vtp mode off
+
+
+! ==========================================
+! VTP VERSION
+! ==========================================
+
+Switch(config)# vtp version 1
+Switch(config)# vtp version 2
+Switch(config)# vtp version 3
+
+
+! ==========================================
+! VTP PRUNING
+! ==========================================
+
+Switch(config)# vtp pruning
+
+! Disable pruning
+Switch(config)# no vtp pruning
+
+
+! ==========================================
+! VTP VLAN CONFIGURATION
+! ==========================================
+
+! On VTP Server
+Switch(config)# vlan 10
+Switch(config-vlan)# name SALES
+
+Switch(config)# vlan 20
+Switch(config-vlan)# name HR
+
+Switch(config)# vlan 30
+Switch(config-vlan)# name IT
+
+
+! ==========================================
+! VERIFY VTP
+! ==========================================
+
+Switch# show vtp status
+Switch# show vtp counters
+Switch# show vtp password
+Switch# show vlan brief
