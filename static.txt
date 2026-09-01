@@ -28,3 +28,34 @@ Router(config-if)#exit
 Router(config)#ip route 11.1.1.0 255.255.255.0 11.1.1.30
                         
 ip route (destination n/w add)(des subnet mask)( source next hop)
+### 1. Basic Static Route
+
+Router(config)# ip route <destination-network> <subnet-mask> <next-hop-IP>
+
+
+Example:
+
+
+R1(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2
+_______________________Type of static configuration_________________________________________
+Destination: 192.168.2.0/24
+Next hop:    10.0.0.2
+
+### 1. Static Route Using Exit Interface
+R1(config)# ip route 192.168.2.0 255.255.255.0 gigabitEthernet 0/1
+
+### 2. Static Route Using Next Hop + Exit Interface
+R1(config)# ip route 192.168.2.0 255.255.255.0 gigabitEthernet 0/1 10.0.0.2
+
+### 3. Default Static Route
+Used when you want to send **all unknown destinations** toward one router.
+Router(config)# ip route 0.0.0.0 0.0.0.0 <next-hop-IP>
+
+### 4. Floating Static Route
+A backup static route with a higher administrative distance.
+Router(config)# ip route <network> <mask> <next-hop> <AD>
+R1(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2 200
+The route with the **lower AD** is preferred
+
+
+
