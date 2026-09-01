@@ -35,3 +35,13 @@ Router(config-router)#do show ip protocols
 Router#show ip rip database
 show running-config | section router rip   
 ping <neighbor-IP>
+------------------------split horizon--------------------------------------
+Router(config)# interface GigabitEthernet0/0
+Router(config-if)# ip split-horizon
+---------------------------passive interface-------------------------------
+Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# no auto-summary
+Router(config-router)# network 192.168.1.0
+Router(config-router)# network 10.0.0.0
+Router(config-router)# passive-interface GigabitEthernet0/1
