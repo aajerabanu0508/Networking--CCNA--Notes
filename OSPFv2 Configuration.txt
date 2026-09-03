@@ -32,13 +32,14 @@ interface g0/0
  ipv6 ospf 1 area 0
  no shutdown
 
+ipv6 router ospf 1
+ router-id 1.1.1.1
+
 interface g0/1
  ipv6 address 2001:db8:2::1/64
  ipv6 ospf 1 area 0
  no shutdown
 
-ipv6 router ospf 1
- router-id 1.1.1.1
 
 end
 
@@ -60,7 +61,6 @@ interface g0/1
 
 ipv6 router ospf 1
  router-id 2.2.2.2
-
 end
 
 
