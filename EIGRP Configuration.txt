@@ -1,7 +1,4 @@
 EIGRP Configuration
-
-
-
 R1
 G0/0 → 192.168.1.1/24
 G0/1 → 10.0.0.1/30
@@ -24,11 +21,33 @@ R2(config)# router eigrp 100
 R2(config-router)# network 192.168.2.0 0.0.0.255
 R2(config-router)# network 10.0.0.0 0.0.0.3
 R2(config-router)# no auto-summary
+------------------------------ipv6 EIGRP------------------------------------------------------------
+ipv6 router eigrp 100
+ router-id 1.1.1.1
+ no shutdown
+
+interface g0/0
+ ipv6 address 2001:db8:1::1/64
+ ipv6 eigrp 100
+ no shutdown
+
+ipv6 router eigrp 100
+ router-id 2.2.2.2
+ no shutdown
+
+interface g0/0
+ ipv6 address 2001:db8:1::2/64
+ ipv6 eigrp 100
+ no shutdown
 
 
-Verification Commands
+----------------------------------------Verification Commands------------------------------
 show ip eigrp neighbors
 show ip eigrp topology
 show ip protocols
 show ip route
 show ip route eigrp
+show ipv6 eigrp neighbors
+show ipv6 route eigrp
+show ipv6 eigrp topology
+show ipv6 protocols
