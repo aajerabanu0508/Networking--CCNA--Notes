@@ -57,5 +57,29 @@ Router(config)# ip route <network> <mask> <next-hop> <AD>
 R1(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2 200
 The route with the **lower AD** is preferred
 
+-------------------------------------IPv6 Static Routing-------------------------------
+
+Router> enable
+Router# configure terminal
+R1(config)# ipv6 unicast-routing
+R1(config)# interface g0/0
+R1(config-if)# ipv6 address 2001:db8:10::1/64
+R1(config-if)# no shutdown
+Router(config-if)# exit
+Router(config)# end
+Router# show ipv6 interface brief
+R2(config)# ipv6 unicast-routing
+R2(config)# interface g0/0
+R2(config-if)# ipv6 address 2001:db8:10::2/64
+R2(config-if)# no shutdown
+
+Enable IPv6 routing:
+Router(config)# ipv6 unicast-routing
+Static IPv6 route:
+Router(config)# ipv6 route 2001:DB8:2::/64 2001:DB8:1::2
+Using exit interface:
+Router(config)# ipv6 route 2001:DB8:2::/64 gigabitEthernet 0/1
+Default IPv6 route:
+Router(config)# ipv6 route ::/0 2001:DB8:1::2
 
 
