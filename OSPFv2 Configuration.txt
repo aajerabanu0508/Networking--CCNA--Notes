@@ -21,43 +21,47 @@ R2(config-router)# network 10.0.0.0 0.0.0.3 area 0
 
 
 OSPFv3 Configuration
+_________________________R1 — IPv6 + OSPFv3_________________________
+enable
+configure terminal
 
-R1
-G0/0 → 2001:DB8:1::1/64
-G0/1 → 2001:DB8:12::1/64
+ipv6 unicast-routing
 
-R2
-G0/0 → 2001:DB8:2::1/64
-G0/1 → 2001:DB8:12::2/64
+interface g0/0
+ ipv6 address 2001:db8:1::1/64
+ ipv6 ospf 1 area 0
+ no shutdown
 
-First enable IPv6 routing:
+interface g0/1
+ ipv6 address 2001:db8:12::1/64
+ ipv6 ospf 1 area 0
+ no shutdown
 
-R1(config)# ipv6 unicast-routing
+ipv6 router ospf 1
+ router-id 1.1.1.1
 
-Configure OSPFv3:
+end
 
-R1(config)# ipv6 router ospf 1
-R1(config-rtr)# router-id 1.1.1.1
+__________________________R2 — IPv6 + OSPFv3______________________________
+enable
+configure terminal
 
-Enable OSPFv3 on interfaces:
+ipv6 unicast-routing
 
-R1(config)# interface g0/0
-R1(config-if)# ipv6 ospf 1 area 0
+interface g0/0
+ ipv6 address 2001:db8:2::1/64
+ ipv6 ospf 1 area 0
+ no shutdown
 
-R1(config)# interface g0/1
-R1(config-if)# ipv6 ospf 1 area 0
+interface g0/1
+ ipv6 address 2001:db8:12::2/64
+ ipv6 ospf 1 area 0
+ no shutdown
 
-OSPFv3 R2 Configuration
-R2(config)# ipv6 unicast-routing
+ipv6 router ospf 1
+ router-id 2.2.2.2
 
-R2(config)# ipv6 router ospf 1
-R2(config-rtr)# router-id 2.2.2.2
-
-R2(config)# interface g0/0
-R2(config-if)# ipv6 ospf 1 area 0
-
-R2(config)# interface g0/1
-R2(config-if)# ipv6 ospf 1 area 0
+end
 
 
 
