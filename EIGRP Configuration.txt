@@ -40,7 +40,7 @@ interface g0/0
 
 
 ----------------------------------------Verification Commands------------------------------
-show ip eigrp neighbors
+
 show ip eigrp topology
 show ip protocols
 show ip route
