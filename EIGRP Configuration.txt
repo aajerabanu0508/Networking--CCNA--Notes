@@ -23,7 +23,6 @@ R2(config-router)# network 10.0.0.0 0.0.0.3
 R2(config-router)# no auto-summary
 ------------------------------ipv6 EIGRP------------------------------------------------------------
 ipv6 router eigrp 100
- router-id 1.1.1.1
  no shutdown
 
 interface g0/0
@@ -32,7 +31,6 @@ interface g0/0
  no shutdown
 
 ipv6 router eigrp 100
- router-id 2.2.2.2
  no shutdown
 
 interface g0/0
