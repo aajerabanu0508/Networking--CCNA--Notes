@@ -1,0 +1,49 @@
+BGP Configuration
+EBGP Example
+AS 100                  AS 200
+R1 ─────────────────── R2
+
+R1:
+
+R1(config)# router bgp 100
+R1(config-router)# neighbor 10.0.0.2 remote-as 200
+
+R2:
+
+R2(config)# router bgp 200
+R2(config-router)# neighbor 10.0.0.1 remote-as 100
+IBGP Example
+AS 100
+
+R1 ───────── R2
+
+R1:
+
+R1(config)# router bgp 100
+R1(config-router)# neighbor 10.0.0.2 remote-as 100
+
+R2:
+
+R2(config)# router bgp 100
+R2(config-router)# neighbor 10.0.0.1 remote-as 100
+Key Difference
+EBGP:
+neighbor X remote-as DIFFERENT-AS
+
+IBGP:
+neighbor X remote-as SAME-AS
+Slide 10 — BGP Verification & Summary
+Verification Commands
+show ip bgp
+
+View BGP table.
+
+show ip bgp summary
+
+View BGP neighbors and session status.
+
+show ip route bgp
+
+View BGP routes installed in the routing table.
+
+show ip bgp neighbors
