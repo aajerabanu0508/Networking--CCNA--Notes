@@ -15,11 +15,6 @@ SW1(config)# interface vlan 1
 SW1(config-if)# ip address 192.168.1.1 255.255.255.0
 SW1(config-if)# no shutdown
 SW1(config-if)# exit
-Configure console password
-SW1(config)# line console 0
-SW1(config-line)# password cisco
-SW1(config-line)# login
-SW1(config-line)# exit
 3. Telnet configuration
 
 Configure the VTY lines:
@@ -37,7 +32,7 @@ SW1(config)# end
 SW1# configure terminal
 SW1(config)# hostname SW1
 SW1(config)# ip domain-name lab.local
-SW1(config)# username admin privilege 15 secret admin123
+SW1(config)# username admin secret admin123
 SW1(config)# crypto key generate rsa
 
 When prompted for the modulus size, use:
