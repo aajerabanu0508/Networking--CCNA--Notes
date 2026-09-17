@@ -40,10 +40,6 @@ View BGP table.
 
 show ip bgp summary
 
-View BGP neighbors and session status.
-
-show ip route bgp
-
 View BGP routes installed in the routing table.
 
 show ip bgp neighbors
