@@ -44,8 +44,6 @@ interface g0/0
 show ip eigrp topology
 show ip protocols
 show ip route
-show ip route eigrp
 show ipv6 eigrp neighbors
-show ipv6 route eigrp
 show ipv6 eigrp topology
 show ipv6 protocols
