@@ -1,0 +1,37 @@
+Router
+enable
+configure terminal
+
+hostname R1
+
+interface g0/0
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
+exit
+
+ntp server 192.168.1.10
+
+end
+clock timezone IST 5 30
+copy running-config startup-config
+Switch
+enable
+configure terminal
+
+hostname SW1
+
+interface vlan 1
+ ip address 192.168.1.2 255.255.255.0
+ no shutdown
+exit
+
+ip default-gateway 192.168.1.1
+ntp server 192.168.1.10
+
+end
+copy running-config startup-config
+Server
+IP Address      : 192.168.1.10
+Subnet Mask     : 255.255.255.0
+Gateway         : 192.168.1.1
+NTP Service     : ON
