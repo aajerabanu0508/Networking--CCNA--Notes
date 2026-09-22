@@ -1,0 +1,73 @@
+----------------------Static NAT------------------------------------- 
+
+Example:
+
+Inside Local       Inside Global
+192.168.1.10  ───► 203.0.113.10
+
+Cisco configuration:
+
+Router(config)# ip nat inside source static 192.168.1.10 203.0.113.10
+
+Define interfaces:
+
+Router(config)# interface g0/0
+Router(config-if)# ip nat inside
+
+Router(config)# interface g0/1
+Router(config-if)# ip nat outside
+
+----------------------------------Dynamic NAT-------------------------------
+
+
+Private                 Public Pool
+
+192.168.1.10 ───────► 203.0.113.10
+192.168.1.11 ───────► 203.0.113.11
+192.168.1.12 ───────► 203.0.113.12
+
+Example:
+
+ip nat pool PUBLIC_POOL 203.0.113.10 203.0.113.20 netmask 255.255.255.0
+
+access-list 1 permit 192.168.1.0 0.0.0.255
+
+ip nat inside source list 1 pool PUBLIC_POOL
+
+Interfaces:
+
+interface g0/0
+ ip nat inside
+
+interface g0/1
+ ip nat outside
+
+Verification
+show ip nat translations
+show ip nat statistics
+show running-config
+
+---------------------------PAT------------------------------------
+
+192.168.1.10:50001 ─┐
+192.168.1.11:50002 ─┼──► 203.0.113.10
+192.168.1.12:50003 ─┘
+
+The router differentiates connections using Layer 4 port numbers.
+
+Cisco configuration:
+
+access-list 1 permit 192.168.1.0 0.0.0.255
+
+ip nat inside source list 1 interface g0/1 overload
+interface g0/0
+ ip nat inside
+
+interface g0/1
+ ip nat outside
+-------------------------------------DNS-----------------------
+                    switch
+                     /    \
+                  server  pc
+ping pc
+ping aajera
