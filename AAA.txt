@@ -3,9 +3,9 @@ Router#config t
 Router(config)#int gig0/0/0
 Router(config-if)#ip address 10.1.1.1 255.0.0.0
 Router(config-if)#aaa new-model
-Router(config)# radius server MY_RADIUS_SERVER
-Router(config-radius-server)# address ipv4 20.1.1.100
-Router(config-radius-server)# key MySecret
+Router(config-if)#radius-server host 192.168.1.100
+Router(config-if)#radius-server key cisco123
+Router(config-if)#aaa authentication login default group radius local
 Router(config-radius-server)# exit
 Router(config)#aaa authentication login AAA group radius
 Router(config)#line vty 0 4
