@@ -11,11 +11,14 @@ Switch(config)#interface fa0/5
 Switch(config-if)#switchport mode access
 Switch(config-if)#switchport access vlan 2
 Switch(config-if)#exit
-
 Switch#show vlan
 **********with trunk***************
 livewire(config)#interface fa0/4
 livewire(config-if)#switchport mode trunk
+livewire(config-if)#switchport trunk native vlan 99
+livewire(config-if)#switchport trunk allowed vlan 10,20,30,99
+livewire(config-if)#switchport nonegotiate
+livewire(config-if)#no shutdown
 livewire(config-if)#switchport  trunk native vlan 2
 livewire(config-if)#exit
 ---------------------------------------------------------------------
