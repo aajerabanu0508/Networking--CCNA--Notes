@@ -1,0 +1,133 @@
+-----------------HSRP----------- 
+R1
+enable
+configure terminal
+
+hostname R1
+
+interface GigabitEthernet0/0
+ ip address 192.168.10.2 255.255.255.0
+ standby 1 ip 192.168.10.1
+ standby 1 priority 110
+ standby 1 preempt
+ no shutdown
+
+end
+write memory
+--------------R2----------------------
+enable
+configure terminal
+
+hostname R2
+
+interface GigabitEthernet0/0
+ ip address 192.168.10.3 255.255.255.0
+ standby 1 ip 192.168.10.1
+ standby 1 priority 100
+ standby 1 preempt
+ no shutdown
+
+end
+write memory
+----------------Verification commands----------
+show standby
+show standby brief
+show ip interface brief
+
+Useful connectivity tests:
+
+ping 192.168.10.1
+ping 192.168.10.2
+ping 192.168.10.3
+
+---------------R1 — VRRP Master--------------------
+enable
+configure terminal
+
+hostname R1
+
+interface GigabitEthernet0/0/0
+ description LAN-to-Switch
+ ip address 192.168.10.2 255.255.255.0
+
+ vrrp 1 ip 192.168.10.1
+ vrrp 1 priority 110
+ vrrp 1 preempt
+
+ no shutdown
+
+end
+write memory
+--------------------R2 — VRRP Backup-----------------
+enable
+configure terminal
+
+hostname R2
+
+interface GigabitEthernet0/0/0
+ description LAN-to-Switch
+ ip address 192.168.10.3 255.255.255.0
+
+ vrrp 1 ip 192.168.10.1
+ vrrp 1 priority 100
+ vrrp 1 preempt
+
+ no shutdown
+
+end
+write memory
+-------------------Configure PC--------------
+IP Address      : 192.168.10.10
+Subnet Mask     : 255.255.255.0
+Default Gateway : 192.168.10.1
+
+show vrrp brief
+show vrrp
+
+------------- GLBP configuration-------------
+R1
+enable
+configure terminal
+
+hostname R1
+
+interface GigabitEthernet0/0/0
+ description LAN-to-Switch
+ ip address 192.168.10.2 255.255.255.0
+
+ glbp 1 ip 192.168.10.1
+ glbp 1 priority 110
+ glbp 1 preempt
+ glbp 1 load-balancing round-robin
+
+ no shutdown
+
+end
+write memory
+------------------R2---------------
+enable
+configure terminal
+
+hostname R2
+
+interface GigabitEthernet0/0/0
+ description LAN-to-Switch
+ ip address 192.168.10.3 255.255.255.0
+
+ glbp 1 ip 192.168.10.1
+ glbp 1 priority 100
+ glbp 1 preempt
+ glbp 1 load-balancing round-robin
+
+ no shutdown
+
+end
+write memory
+-------------------- Verify GLBP----------
+
+Run:
+
+show glbp
+
+glbp 1 load-balancing host-dependent
+glbp 1 load-balancing weighted
