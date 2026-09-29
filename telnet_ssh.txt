@@ -1,4 +1,5 @@
 telnet 23        ssh 22
+                 hostname
 username         username
 password,ip      password
 decryption       ip
