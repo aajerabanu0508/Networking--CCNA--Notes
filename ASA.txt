@@ -1,0 +1,48 @@
+ciscoasa>
+ciscoasa>en
+Password: 
+ciscoasa#config t
+ciscoasa(config)#hostname firewall
+firewall(config)#enable password aajera
+firewall(config)#username banu password firwall
+firewall(config)#clock ?
+
+configure mode commands/options:
+  set  Set the time and date
+firewall(config)#clock set 18:02:16: 25 Sep 2026
+firewall(config)#Invalid password
+firewall(config)#int gig1/1
+firewall(config-if)#no sh
+
+firewall(config-if)#ex
+firewall(config)#int gig1/2
+firewall(config-if)#no sh
+
+firewall(config-if)#ex
+firewall(config)#int gig1/3
+firewall(config-if)#no sh
+
+firewall(config-if)#ip address 10.1.1.1 255.0.0.0
+firewall(config-if)#nameif INSIDE
+INFO: Security level for "INSIDE" set to 0 by default.
+firewall(config-if)#security-level ?
+
+interface mode commands/options:
+  <0-100>  Security level for the interface
+firewall(config-if)#security-level 100
+firewall(config-if)#ex
+firewall(config)#int gig1/1
+firewall(config-if)#no sh
+firewall(config-if)#ip address 10.2.1.1 255.0.0.0
+Previous instance shut down.Starting a new one
+firewall(config-if)#nameif DMC
+firewall(config-if)#security-level 70
+firewall(config-if)#ex
+firewall(config)#int gig1/2
+firewall(config-if)#no sh
+firewall(config-if)#ip address 10.3.1.1 255.0.0.0	
+firewall(config-if)#nameif OUTSIDE
+firewall(config-if)#security-level 0
+firewall(config-if)#ex
+firewall(config)#wr mem
+firewall(config)#sh start
