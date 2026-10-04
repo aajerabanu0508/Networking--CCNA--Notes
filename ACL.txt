@@ -1,0 +1,19 @@
+Configuration
+Router(config)# access-list 10 deny host 192.168.1.10
+Router(config)# access-list 10 permit any
+
+Router(config)# interface g0/0
+Router(config-if)# ip access-group 10 in
+Verify
+show access-lists
+show ip interface g0/0
+
+
+extended ACL 
+Configuration
+Router(config)# access-list 100 deny tcp host 192.168.1.10 host 192.168.2.10 eq 80
+Router(config)# access-list 100 permit ip any any
+
+
+Router(config)# interface g0/0
+Router(config-if)# ip access-group 100 in
